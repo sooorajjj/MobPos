@@ -30,6 +30,14 @@ public class ManagerAreaActivity extends FragmentActivity {
                 ManagerAreaActivity.this.startActivity(adminIntent);
             }
         });
+        Button bMasters = (Button) findViewById(R.id.bMasters);
+        bMasters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent adminIntent = new Intent(ManagerAreaActivity.this, MastersActivity.class);
+                ManagerAreaActivity.this.startActivity(adminIntent);
+            }
+        });
 
         Button bChangeStock = (Button) findViewById(R.id.bSettings);
         bChangeStock.setVisibility(View.GONE);

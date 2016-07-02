@@ -30,6 +30,22 @@ public class AdminAreaActivity extends FragmentActivity {
                 AdminAreaActivity.this.startActivity(adminIntent);
             }
         });
+        Button bMasters = (Button) findViewById(R.id.bMasters);
+        bMasters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent adminIntent = new Intent(AdminAreaActivity.this, MastersActivity.class);
+                AdminAreaActivity.this.startActivity(adminIntent);
+            }
+        });
+        Button bSettings = (Button) findViewById(R.id.bSettings);
+        bSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent adminIntent = new Intent(AdminAreaActivity.this, SettingsActivity.class);
+                AdminAreaActivity.this.startActivity(adminIntent);
+            }
+        });
 
 
   }
