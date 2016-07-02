@@ -7,14 +7,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AdminAreaActivity"
-    android:visibility="visible">
+    tools:context="online.klok.mobpos.BillingActivity">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Billing"
-        android:id="@+id/bBilling"
+        android:text="Pay Collect"
+        android:id="@+id/bPayCollect"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />
@@ -22,28 +21,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reports"
-        android:id="@+id/bReports"
-        android:layout_below="@+id/bBilling"
+        android:text="POS"
+        android:id="@+id/bPOS"
+        android:layout_below="@+id/bPayCollect"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:id="@+id/bSettings"
-        android:layout_below="@+id/bReports"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Masters"
-        android:id="@+id/bMasters"
-        android:layout_below="@+id/bSettings"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
 </RelativeLayout>
