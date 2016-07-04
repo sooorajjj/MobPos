@@ -1,8 +1,12 @@
 package online.klok.mobpos;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,4 +57,33 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.testmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.action_about:
+                aboutMenuItem();
+                break;
+        }
+        return true;
+    }
+    private void aboutMenuItem(){
+        new AlertDialog.Builder(this)
+                .setTitle("About")
+                .setMessage("Created by Klok Innovations "+" Copyright 2015 ©. All rights reserved")
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).show();
+    }
+
 }
