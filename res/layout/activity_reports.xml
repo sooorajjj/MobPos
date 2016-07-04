@@ -16,8 +16,7 @@
         android:id="@+id/bStockReport"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="#9e1a1a" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -26,9 +25,7 @@
         android:id="@+id/bPayCollectReport"
         android:layout_below="@+id/bStockReport"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="@color/colorAccent"
-        android:background="@color/colorPrimaryDark" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -37,8 +34,7 @@
         android:id="@+id/bDailyReport"
         android:layout_below="@+id/bPayCollectReport"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:backgroundTint="@color/colorAccent" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
