@@ -2,6 +2,8 @@ package online.klok.mobpos;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +21,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // ActionBar Customisations
+        ActionBar actionBar = getSupportActionBar();
+                actionBar.setTitle("Klok Innovations");
+                actionBar.setLogo(R.drawable.collection_report);
+                actionBar.setDisplayUseLogoEnabled(true);
+                actionBar.setDisplayShowHomeEnabled(true);
+
 
         final Button bLogin = (Button) findViewById(R.id.bLogin);
         final TextView registerLink = (TextView) findViewById(R.id.tvRegisterHere);
@@ -67,17 +77,17 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         super.onOptionsItemSelected(item);
-        switch (item.getItemId()){
+        switch (item.getItemId()){ // using  switch statement just so we can add moar functions here
             case R.id.action_about:
                 aboutMenuItem();
                 break;
-        }
+            }
         return true;
     }
     private void aboutMenuItem(){
         new AlertDialog.Builder(this)
                 .setTitle("About")
-                .setMessage("Created by Klok Innovations "+" Copyright 2015 ©. All rights reserved")
+                .setMessage("Klok Innovations"+" Copyright 2015 ©. All rights reserved")
                 .setNeutralButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
