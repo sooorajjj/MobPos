@@ -2,16 +2,27 @@ package online.klok.mobpos;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class AdminAreaActivity extends FragmentActivity {
+public class AdminAreaActivity extends AppCompatActivity {
 
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_area);
+
+        // ActionBar Customisations
+             actionBar = getSupportActionBar();
+                actionBar.setTitle("Klok Innovations");
+                actionBar.setSubtitle("Admin Area");
+                actionBar.setLogo(R.drawable.collection_report);
+                actionBar.setDisplayUseLogoEnabled(true);
+                actionBar.setDisplayShowHomeEnabled(true);
+
 
         Button bBilling = (Button) findViewById(R.id.bBilling);
         bBilling.setOnClickListener(new View.OnClickListener() {

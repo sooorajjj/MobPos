@@ -2,11 +2,10 @@ package online.klok.mobpos;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,18 +16,20 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
+    ActionBar actionBar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         // ActionBar Customisations
-        ActionBar actionBar = getSupportActionBar();
-                actionBar.setTitle("Klok Innovations");
-                actionBar.setLogo(R.drawable.collection_report);
-                actionBar.setDisplayUseLogoEnabled(true);
-                actionBar.setDisplayShowHomeEnabled(true);
-
+                actionBar = getSupportActionBar();
+                        actionBar.setTitle("Klok Innovations");
+                        actionBar.setLogo(R.drawable.collection_report);
+                        actionBar.setDisplayUseLogoEnabled(true);
+                        actionBar.setDisplayShowHomeEnabled(true);
 
         final Button bLogin = (Button) findViewById(R.id.bLogin);
         final TextView registerLink = (TextView) findViewById(R.id.tvRegisterHere);
