@@ -6,20 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 
 public class ReportsActivity extends AppCompatActivity {
 
-    ActionBar actionBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reports);
 
-        // ActionBar Customisations
-        actionBar = getSupportActionBar();
-            actionBar.setTitle("Klok Innovations");
-            actionBar.setSubtitle("Reports");
-            actionBar.setLogo(R.drawable.collection_report);
-            actionBar.setDisplayUseLogoEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Klok Innovations");
+        getSupportActionBar().setSubtitle("Billing");
+        getSupportActionBar().setLogo(R.drawable.collection_report);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
     }
 }

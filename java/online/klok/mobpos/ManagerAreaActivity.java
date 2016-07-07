@@ -11,7 +11,6 @@ import android.widget.Button;
 
 public class ManagerAreaActivity extends AppCompatActivity {
 
-    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +18,13 @@ public class ManagerAreaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_area);
         Button bBilling = (Button) findViewById(R.id.bBilling);
 
-        // ActionBar Customisations
-        actionBar = getSupportActionBar();
-            actionBar.setTitle("Klok Innovations");
-            actionBar.setSubtitle("Manager Area");
-            actionBar.setLogo(R.drawable.collection_report);
-            actionBar.setDisplayUseLogoEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Klok Innovations");
+        getSupportActionBar().setSubtitle("Billing");
+        getSupportActionBar().setLogo(R.drawable.collection_report);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
         bBilling.setOnClickListener(new View.OnClickListener() {

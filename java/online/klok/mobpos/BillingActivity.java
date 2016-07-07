@@ -9,21 +9,19 @@ import android.widget.Button;
 
 
 public class BillingActivity extends AppCompatActivity {
-    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_billing);
 
-        // ActionBar Customisations
-        actionBar = getSupportActionBar();
-            actionBar.setTitle("Klok Innovations");
-            actionBar.setSubtitle("Billing");
-            actionBar.setLogo(R.drawable.collection_report);
-            actionBar.setDisplayUseLogoEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
-
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Klok Innovations");
+        getSupportActionBar().setSubtitle("Billing");
+        getSupportActionBar().setLogo(R.drawable.collection_report);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         Button bPayCollect = (Button) findViewById(R.id.bPayCollect);
         bPayCollect.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +31,5 @@ public class BillingActivity extends AppCompatActivity {
                 BillingActivity.this.startActivity(billingIntent);
             }
         });
-
-
     }
 }
