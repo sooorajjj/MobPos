@@ -1,6 +1,8 @@
 package online.klok.mobpos;
 
 import android.content.Intent;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -42,5 +44,28 @@ public class UserAreaActivity extends AppCompatActivity {
 
         Button bMasters = (Button) findViewById(R.id.bMasters);
         bMasters.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                finish();
+                            }
+                        })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        // Create the AlertDialog object and return it
+        builder.create();
+        builder.show();
     }
 }
