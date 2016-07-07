@@ -33,7 +33,7 @@
         <LinearLayout
             android:padding="16dp"
             android:orientation="vertical"
-            android:layout_weight="0.2"
+            android:layout_weight="0.25"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -81,23 +81,21 @@
         </LinearLayout>
         <LinearLayout
 
-            android:gravity="bottom"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginLeft="26dp"
                 android:padding="16dp"
                 android:id="@+id/tvRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/register"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:background="@color/colorPrimaryDark" />
-
         </LinearLayout>
 
 
