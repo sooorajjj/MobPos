@@ -15,7 +15,6 @@ public class AdminAreaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_area);
 
         assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Klok Innovations");
         getSupportActionBar().setSubtitle("Billing");

@@ -19,13 +19,11 @@ public class ManagerAreaActivity extends AppCompatActivity {
         Button bBilling = (Button) findViewById(R.id.bBilling);
 
         assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Klok Innovations");
         getSupportActionBar().setSubtitle("Billing");
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-
 
         bBilling.setOnClickListener(new View.OnClickListener() {
             @Override

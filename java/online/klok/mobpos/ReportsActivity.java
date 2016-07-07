@@ -3,6 +3,7 @@ package online.klok.mobpos;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 public class ReportsActivity extends AppCompatActivity {
 
@@ -21,5 +22,11 @@ public class ReportsActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
     }
 }

@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             if (mInputText.getText().toString().equals("admin") && mPasswordText.getText().toString().equals("admin")) {
                 Intent loginIntent = new Intent(LoginActivity.this, AdminAreaActivity.class);
+                loginIntent.putExtra("admin", "admin");
                 startActivity(loginIntent);
             } else if(mInputText.getText().toString().equals("manager") && mPasswordText.getText().toString().equals("manager")) {
                 Intent loginIntent = new Intent(LoginActivity.this, ManagerAreaActivity.class);

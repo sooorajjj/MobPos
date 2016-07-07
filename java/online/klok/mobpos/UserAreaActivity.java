@@ -14,13 +14,11 @@ public class UserAreaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_area);
 
         assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Klok Innovations");
         getSupportActionBar().setSubtitle("Billing");
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-
 
         Button bChangeStock = (Button) findViewById(R.id.bSettings);
         bChangeStock.setVisibility(View.GONE);
