@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextInputLayout mInputLayout, mPasswordLayout;
     private EditText mInputText, mPasswordText;
     private Button login;
-    private TextView registerLink;
+    private Button registerLink;
     boolean isEmptyEmail;
     boolean isEmptyPassword;
 
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void Initialize() {
-        registerLink = (TextView) findViewById(R.id.tvRegister);
+        registerLink = (Button) findViewById(R.id.tvRegister);
         mRoot = (LinearLayout) findViewById(R.id.root_activity_second);
         mInputLayout = (TextInputLayout) findViewById(R.id.input_layout);
         mPasswordLayout = (TextInputLayout) findViewById(R.id.password_layout);

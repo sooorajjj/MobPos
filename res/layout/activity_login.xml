@@ -72,16 +72,18 @@
             android:layout_below="@+id/password_layout"
             android:background="@color/colorPrimaryDark"
             android:text="Login"
+            android:textSize="20sp"
             android:textColor="@android:color/white"/>
 
-        <TextView
+        <Button
+            android:padding="17dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_margin="16dp"
             android:id="@+id/tvRegister"
-            android:layout_marginLeft="110dp"
-            android:textSize="22sp"
-            android:layout_marginTop="20dp"
             android:layout_below="@+id/btnLogin"
             android:text="@string/register"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
 
