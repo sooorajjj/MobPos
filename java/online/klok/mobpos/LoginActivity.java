@@ -1,76 +1,121 @@
 package online.klok.mobpos;
 
-import android.content.DialogInterface;
+
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
+import android.os.Build;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ActionBar actionBar;
+    private LinearLayout mRoot;
+    private TextInputLayout mInputLayout, mPasswordLayout;
+    private EditText mInputText, mPasswordText;
+    private Button login;
+    private TextView registerLink;
+    boolean isEmptyEmail;
+    boolean isEmptyPassword;
 
+    private View.OnClickListener mSnackBarClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // ActionBar Customisations
-                actionBar = getSupportActionBar();
-                        actionBar.setTitle("Klok Innovations");
-                        actionBar.setLogo(R.drawable.collection_report);
-                        actionBar.setDisplayUseLogoEnabled(true);
-                        actionBar.setDisplayShowHomeEnabled(true);
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
 
-        final Button bLogin = (Button) findViewById(R.id.bLogin);
-        final TextView registerLink = (TextView) findViewById(R.id.tvRegisterHere);
-
-        registerLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                LoginActivity.this.startActivity(registerIntent);
-
-
-            }
-        });
-
-        bLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText username = (EditText) findViewById(R.id.etUserName);
-                EditText password = (EditText) findViewById(R.id.etPassword);
-
-                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    Intent loginIntent = new Intent(LoginActivity.this, AdminAreaActivity.class);
-                    LoginActivity.this.startActivity(loginIntent);
-                } else if(username.getText().toString().equals("manager") && password.getText().toString().equals("manager")) {
-                    Intent loginIntent = new Intent(LoginActivity.this, ManagerAreaActivity.class);
-                    LoginActivity.this.startActivity(loginIntent);
-                }else if(username.getText().toString().equals("user") && password.getText().toString().equals("user")) {
-                    Intent loginIntent = new Intent(LoginActivity.this, UserAreaActivity.class);
-                    LoginActivity.this.startActivity(loginIntent);
-                }else {
-                    //wrong password
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
+        Initialize();
+        listener();
     }
+
+    private void Initialize() {
+        registerLink = (TextView) findViewById(R.id.tvRegister);
+        mRoot = (LinearLayout) findViewById(R.id.root_activity_second);
+        mInputLayout = (TextInputLayout) findViewById(R.id.input_layout);
+        mPasswordLayout = (TextInputLayout) findViewById(R.id.password_layout);
+        mInputText = (EditText) findViewById(R.id.edtInput);
+        mPasswordText = (EditText) findViewById(R.id.edtPassword);
+        login = (Button) findViewById(R.id.btnLogin);
+    }
+
+    private boolean isEmptyEmail() {
+        return mInputText.getText() == null
+                || mInputText.getText().toString() == null
+                || mInputText.getText().toString().isEmpty();
+    }
+
+    private boolean isEmptyPassword() {
+        return mPasswordText.getText() == null
+                || mPasswordText.getText().toString() == null
+                || mPasswordText.getText().toString().isEmpty();
+    }
+
+    private void listener() {
+        registerLink.setOnClickListener(this);
+        login.setOnClickListener(this);
+    }
+
     @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.btnLogin){
+
+            isEmptyEmail = isEmptyEmail();
+            isEmptyPassword = isEmptyPassword();
+
+            if (isEmptyEmail && isEmptyPassword) {
+                Snackbar.make(mRoot, "one or more Field are blank", Snackbar.LENGTH_SHORT).setAction(getString(R.string.txt_dismiss), mSnackBarClickListener).show();
+            } else if (isEmptyEmail && !isEmptyPassword) {
+                mInputLayout.setError("Email cannot be empty");
+                mPasswordLayout.setError(null);
+            } else if (!isEmptyEmail && isEmptyPassword) {
+                mInputLayout.setError(null);
+                mPasswordLayout.setError("Password cannot be empty");
+            } else if (!isEmptyEmail && !isEmptyPassword) {
+                mInputLayout.setError(null);
+                mPasswordLayout.setError(null);
+            }
+
+            if (mInputText.getText().toString().equals("admin") && mPasswordText.getText().toString().equals("admin")) {
+                Intent loginIntent = new Intent(LoginActivity.this, AdminAreaActivity.class);
+                startActivity(loginIntent);
+            } else if(mInputText.getText().toString().equals("manager") && mPasswordText.getText().toString().equals("manager")) {
+                Intent loginIntent = new Intent(LoginActivity.this, ManagerAreaActivity.class);
+                startActivity(loginIntent);
+            }else if(mInputText.getText().toString().equals("user") && mPasswordText.getText().toString().equals("user")) {
+                Intent loginIntent = new Intent(LoginActivity.this, UserAreaActivity.class);
+                startActivity(loginIntent);
+            }else {
+                //wrong password
+                Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        if(v.getId() == R.id.tvRegister){
+            Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(registerIntent);
+        }
+    }
+
+  /*  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.testmenu, menu);
         return true;
     }
@@ -78,13 +123,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         super.onOptionsItemSelected(item);
-        switch (item.getItemId()){ // using  switch statement just so we can add moar functions here
+        switch (item.getItemId()){
             case R.id.action_about:
                 aboutMenuItem();
                 break;
             }
         return true;
     }
+
     private void aboutMenuItem(){
         new AlertDialog.Builder(this)
                 .setTitle("About")
@@ -95,6 +141,5 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 }).show();
-    }
-
+    }*/
 }
