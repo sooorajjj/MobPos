@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/phone"
+        android:title="@string/phone"
+        android:icon="@drawable/phone"
+        myapp:showAsAction="always" />
+
+    <item
+        android:id="@+id/computer"
+        android:title="@string/computer"
+        android:icon="@drawable/computer"
+        myapp:showAsAction="always" />
+
+    <item
+        android:id="@+id/gamepad"
+        android:title="@string/gamepad"
+        android:icon="@drawable/gamepad"
+        myapp:showAsAction="always" />
+
+    <item
+        android:id="@+id/camera"
+        android:title="@string/camera"
+        android:icon="@drawable/camera"
+        myapp:showAsAction="always" />
+
+    <item
+        android:id="@+id/video"
+        android:title="@string/video"
+        android:icon="@drawable/video"
+        myapp:showAsAction="always" />
+
+    <item
+        android:id="@+id/email"
+        android:title="@string/email"
+        android:icon="@drawable/email"
+        myapp:showAsAction="always" />
+</menu>

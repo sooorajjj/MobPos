@@ -5,4 +5,11 @@
     <string name="register">Register Here</string>
     <string name="txt_dismiss">Dismiss</string>
     <string name="btn_link_to_register">Not  a member? Sign up now.</string>
+
+    <string name="phone">Phone</string>
+    <string name="computer">Computer</string>
+    <string name="gamepad">Gamepad</string>
+    <string name="camera">Camera</string>
+    <string name="video">Video</string>
+    <string name="email">EMail</string>
 </resources>

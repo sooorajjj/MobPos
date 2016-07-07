@@ -3,47 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AdminAreaActivity"
     android:visibility="visible">
 
-    <Button
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_bottom"
         android:layout_height="wrap_content"
-        android:text="Billing"
-        android:id="@+id/bBilling"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
+        android:layout_width="match_parent"
+        android:background="?attr/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:minHeight="?attr/actionBarSize" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reports"
-        android:id="@+id/bReports"
-        android:layout_below="@+id/bBilling"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+    <LinearLayout
+        android:padding="16dp"
+        android:layout_above="@+id/toolbar_bottom"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Masters"
-        android:id="@+id/bMasters"
-        android:layout_below="@+id/bReports"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Billing"
+            android:id="@+id/bBilling" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:id="@+id/bSettings"
-        android:layout_below="@+id/bMasters"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reports"
+            android:id="@+id/bReports"
+            android:layout_below="@+id/bBilling" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masters"
+            android:id="@+id/bMasters"
+            android:layout_below="@+id/bReports" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:id="@+id/bSettings"
+            android:layout_below="@+id/bMasters" />
+
+    </LinearLayout>
 </RelativeLayout>
