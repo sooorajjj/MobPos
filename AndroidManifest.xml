@@ -19,11 +19,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".AdminAreaActivity" />
-        <activity android:name=".ManagerAreaActivity" />
-        <activity android:name=".UserAreaActivity" />
-        <activity android:name=".BillingActivity" />
+        <activity android:name=".RegisterActivity">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".LoginActivity" />
+        </activity>
+        <activity android:name=".AdminAreaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        <activity android:name=".ManagerAreaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        <activity android:name=".UserAreaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        <activity android:name=".BillingActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminAreaActivity" />
+        </activity>
         <activity android:name=".ReportsActivity" />
         <activity android:name=".MastersActivity" />
         <activity android:name=".SettingsActivity" />
