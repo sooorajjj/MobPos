@@ -16,7 +16,7 @@ public class UserAreaActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Klok Innovations");
-        getSupportActionBar().setSubtitle("Billing");
+        getSupportActionBar().setSubtitle("User Area");
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 

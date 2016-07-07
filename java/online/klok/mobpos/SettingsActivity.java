@@ -16,7 +16,7 @@ public class SettingsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Klok Innovations");
-        getSupportActionBar().setSubtitle("Billing");
+        getSupportActionBar().setSubtitle("Setting");
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
     }

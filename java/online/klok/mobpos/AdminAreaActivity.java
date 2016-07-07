@@ -17,7 +17,7 @@ public class AdminAreaActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Klok Innovations");
-        getSupportActionBar().setSubtitle("Billing");
+        getSupportActionBar().setSubtitle("Admin Area");
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 

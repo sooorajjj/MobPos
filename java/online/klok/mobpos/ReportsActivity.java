@@ -18,7 +18,7 @@ public class ReportsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Klok Innovations");
-        getSupportActionBar().setSubtitle("Billing");
+        getSupportActionBar().setSubtitle("Report");
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
