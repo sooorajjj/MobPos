@@ -26,6 +26,8 @@ public class ReportsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
+        overridePendingTransition(R.anim.fade_in,
+                R.anim.fade_out);
         return true;
     }
 }

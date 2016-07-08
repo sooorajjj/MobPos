@@ -31,6 +31,8 @@ public class ManagerAreaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent managerIntent = new Intent(ManagerAreaActivity.this, BillingActivity.class);
                 ManagerAreaActivity.this.startActivity(managerIntent);
+                overridePendingTransition(R.anim.left_to_right,
+                        R.anim.right_to_left);
             }
         });
 
@@ -38,8 +40,11 @@ public class ManagerAreaActivity extends AppCompatActivity {
         bReports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent managerIntent = new Intent(ManagerAreaActivity.this, ReportsActivity.class);
                 ManagerAreaActivity.this.startActivity(managerIntent);
+                overridePendingTransition(R.anim.left_to_right,
+                        R.anim.right_to_left);
             }
         });
         Button bMasters = (Button) findViewById(R.id.bMasters);
@@ -48,6 +53,8 @@ public class ManagerAreaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent managerIntent = new Intent(ManagerAreaActivity.this, MastersActivity.class);
                 ManagerAreaActivity.this.startActivity(managerIntent);
+                overridePendingTransition(R.anim.left_to_right,
+                        R.anim.right_to_left);
             }
         });
 
@@ -66,6 +73,8 @@ public class ManagerAreaActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
                                 finish();
+                                overridePendingTransition(R.anim.fade_in,
+                                        R.anim.fade_out);
                             }
                         })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -74,7 +83,6 @@ public class ManagerAreaActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-        // Create the AlertDialog object and return it
         builder.create();
         builder.show();
     }

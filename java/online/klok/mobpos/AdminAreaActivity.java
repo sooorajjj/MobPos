@@ -84,43 +84,54 @@ public class AdminAreaActivity extends AppCompatActivity implements View.OnClick
         if (v.getId() == R.id.bBilling) {
             Intent adminIntent = new Intent(AdminAreaActivity.this, BillingActivity.class);
             startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
         }
 
         if (v.getId() == R.id.bReports) {
             Intent adminIntent = new Intent(AdminAreaActivity.this, ReportsActivity.class);
             startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
         }
 
         if (v.getId() == R.id.bMasters) {
             Intent adminIntent = new Intent(AdminAreaActivity.this, MastersActivity.class);
             startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
         }
 
         if (v.getId() == R.id.bSettings) {
             Intent adminIntent = new Intent(AdminAreaActivity.this, SettingsActivity.class);
             startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
         }
     }
-        @Override
-        public void onBackPressed() {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Are you sure you want to exit?")
-                    .setPositiveButton("Yes",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
-            // Create the AlertDialog object and return it
-            builder.create();
-            builder.show();
-        }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                finish();
+                                overridePendingTransition(R.anim.fade_in,
+                                        R.anim.fade_out);
+                            }
+                        })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        // Create the AlertDialog object and return it
+        builder.create();
+        builder.show();
+    }
 }

@@ -29,6 +29,8 @@ public class BillingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent billingIntent = new Intent(BillingActivity.this, PayCollectActivity.class);
                 BillingActivity.this.startActivity(billingIntent);
+                overridePendingTransition(R.anim.left_to_right,
+                        R.anim.right_to_left);
             }
         });
     }
@@ -36,6 +38,8 @@ public class BillingActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
+        overridePendingTransition(R.anim.fade_in,
+                R.anim.fade_out);
         return true;
     }
 

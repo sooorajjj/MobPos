@@ -16,14 +16,13 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
+    boolean isEmptyEmail;
+    boolean isEmptyPassword;
     private LinearLayout mRoot;
     private TextInputLayout mInputLayout, mPasswordLayout;
     private EditText mInputText, mPasswordText;
     private Button login;
     private Button registerLink;
-    boolean isEmptyEmail;
-    boolean isEmptyPassword;
-
     private View.OnClickListener mSnackBarClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -94,16 +93,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             if (mInputText.getText().toString().equals("admin") && mPasswordText.getText().toString().equals("admin")) {
                 Intent loginIntent = new Intent(LoginActivity.this, AdminAreaActivity.class);
-                loginIntent.putExtra("admin", "admin");
                 startActivity(loginIntent);
+                finish();
+                overridePendingTransition(R.anim.left_to_right,
+                        R.anim.right_to_left);
             } else if(mInputText.getText().toString().equals("manager") && mPasswordText.getText().toString().equals("manager")) {
                 Intent loginIntent = new Intent(LoginActivity.this, ManagerAreaActivity.class);
                 startActivity(loginIntent);
+                finish();
+                overridePendingTransition(R.anim.left_to_right,
+                        R.anim.right_to_left);
             }else if(mInputText.getText().toString().equals("user") && mPasswordText.getText().toString().equals("user")) {
                 Intent loginIntent = new Intent(LoginActivity.this, UserAreaActivity.class);
                 startActivity(loginIntent);
+                finish();
+                overridePendingTransition(R.anim.left_to_right,
+                        R.anim.right_to_left);
             }else {
-                //wrong password
                 Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
             }
         }
@@ -111,6 +117,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(v.getId() == R.id.tvRegister){
             Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(registerIntent);
+
+            overridePendingTransition(R.anim.fade_in,
+                    R.anim.fade_out);
         }
     }
 
