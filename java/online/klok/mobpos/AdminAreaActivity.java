@@ -8,16 +8,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AdminAreaActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button bBilling;
-    private Button bReports;
-    private Button bMasters;
-    private Button bSettings;
-    private Toolbar toolbarBottom;
+    private Button bBilling, bReports, bMasters, bSettings;
+    private LinearLayout layoutBottom;
+    private TextView movingText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,41 +33,17 @@ public class AdminAreaActivity extends AppCompatActivity implements View.OnClick
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        initilize();
+        initialize();
         listener();
 
-        toolbarBottom.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.phone:
-                        Toast.makeText(getBaseContext(), "You selected Phone", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.computer:
-                        Toast.makeText(getBaseContext(), "You selected Computer", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.gamepad:
-                        Toast.makeText(getBaseContext(), "You selected Gamepad", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.camera:
-                        Toast.makeText(getBaseContext(), "You selected camera", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.video:
-                        Toast.makeText(getBaseContext(), "You selected video", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.email:
-                        Toast.makeText(getBaseContext(), "You selected email", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-                return true;
-            }
-        });
+
+        Animation shake = AnimationUtils.loadAnimation(AdminAreaActivity.this, R.anim.shake);
+        movingText.startAnimation(shake);
     }
 
-    private void initilize() {
-        toolbarBottom = (Toolbar) findViewById(R.id.toolbar_bottom);
-        assert toolbarBottom != null;
-        toolbarBottom.inflateMenu(R.menu.main);
+    private void initialize() {
+        movingText = (TextView) findViewById(R.id.txtMarquee);
+        layoutBottom = (LinearLayout) findViewById(R.id.toolbar_bottom);
         bBilling = (Button) findViewById(R.id.bBilling);
         bReports = (Button) findViewById(R.id.bReports);
         bMasters = (Button) findViewById(R.id.bMasters);

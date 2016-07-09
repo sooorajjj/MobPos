@@ -3,50 +3,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminAreaActivity"
-    android:visibility="visible">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_bottom"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:background="?attr/colorPrimary"
-        android:layout_alignParentBottom="true"
-        android:minHeight="?attr/actionBarSize" />
+    android:visibility="visible"
+    tools:context=".AdminAreaActivity">
 
     <LinearLayout
-        android:padding="16dp"
+        android:id="@+id/toolbar_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtMarquee"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="Moving Text /txtMarquee ... General Information , This is how the text or information to the user will be shown . Knock knock ! Who's there"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_above="@+id/toolbar_bottom"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:padding="16dp">
 
         <Button
+            android:id="@+id/bBilling"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Billing"
-            android:id="@+id/bBilling" />
+            android:text="Billing" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Reports"
             android:id="@+id/bReports"
-            android:layout_below="@+id/bBilling" />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Masters"
+            android:layout_below="@+id/bBilling"
+            android:text="Reports" />
+
+        <Button
             android:id="@+id/bMasters"
-            android:layout_below="@+id/bReports" />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:layout_below="@+id/bReports"
+            android:text="Masters" />
+
+        <Button
             android:id="@+id/bSettings"
-            android:layout_below="@+id/bMasters" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bMasters"
+            android:text="Settings" />
 
     </LinearLayout>
 </RelativeLayout>
