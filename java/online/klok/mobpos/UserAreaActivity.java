@@ -1,14 +1,22 @@
 package online.klok.mobpos;
 
-import android.content.Intent;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-public class UserAreaActivity extends AppCompatActivity {
+public class UserAreaActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private Button bBilling, bReports, bMasters, bChangeStock;
+    private LinearLayout layoutBottom;
+    private TextView movingText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,28 +30,56 @@ public class UserAreaActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        Button bBilling = (Button) findViewById(R.id.bBilling);
-        bBilling.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent userIntent = new Intent(UserAreaActivity.this, BillingActivity.class);
-                UserAreaActivity.this.startActivity(userIntent);
-            }
-        });
 
-        Button bReports = (Button) findViewById(R.id.bReports);
-        bReports.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent userIntent = new Intent(UserAreaActivity.this, ReportsActivity.class);
-                UserAreaActivity.this.startActivity(userIntent);
-            }
-        });
-        Button bChangeStock = (Button) findViewById(R.id.bSettings);
+        initialize();
+        listener();
+
         bChangeStock.setVisibility(View.GONE);
-
-        Button bMasters = (Button) findViewById(R.id.bMasters);
         bMasters.setVisibility(View.GONE);
+
+        Animation shake = AnimationUtils.loadAnimation(UserAreaActivity.this, R.anim.shake);
+        movingText.startAnimation(shake);
+    }
+
+    private void initialize() {
+        bBilling = (Button) findViewById(R.id.bBilling);
+        bReports = (Button) findViewById(R.id.bReports);
+        bMasters = (Button) findViewById(R.id.bMasters);
+        bChangeStock = (Button) findViewById(R.id.bSettings);
+        movingText = (TextView) findViewById(R.id.txtMarquee);
+        layoutBottom = (LinearLayout) findViewById(R.id.bottom_bar);
+    }
+
+    private void listener() {
+        bBilling.setOnClickListener(this);
+        bReports.setOnClickListener(this);
+        bMasters.setOnClickListener(this);
+        bChangeStock.setOnClickListener(this);
+
+    }
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.bBilling) {
+            Intent adminIntent = new Intent(UserAreaActivity.this, BillingActivity.class);
+            startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
+        }
+
+        if (v.getId() == R.id.bReports) {
+            Intent adminIntent = new Intent(UserAreaActivity.this, ReportsActivity.class);
+            startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
+        }
+
+        if (v.getId() == R.id.bMasters) {
+
+        }
+
+        if (v.getId() == R.id.bSettings) {
+
+        }
     }
 
     @Override

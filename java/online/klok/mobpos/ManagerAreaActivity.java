@@ -7,17 +7,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
-public class ManagerAreaActivity extends AppCompatActivity {
+public class ManagerAreaActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Button bBilling, bReports, bMasters, bChangeStock;
+    private LinearLayout layoutBottom;
+    private TextView movingText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_area);
-        Button bBilling = (Button) findViewById(R.id.bBilling);
+
 
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -26,41 +33,59 @@ public class ManagerAreaActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.collection_report);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        bBilling.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent managerIntent = new Intent(ManagerAreaActivity.this, BillingActivity.class);
-                ManagerAreaActivity.this.startActivity(managerIntent);
-                overridePendingTransition(R.anim.left_to_right,
-                        R.anim.right_to_left);
-            }
-        });
 
-        Button bReports = (Button) findViewById(R.id.bReports);
-        bReports.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        initialize();
+        listener();
 
-                Intent managerIntent = new Intent(ManagerAreaActivity.this, ReportsActivity.class);
-                ManagerAreaActivity.this.startActivity(managerIntent);
-                overridePendingTransition(R.anim.left_to_right,
-                        R.anim.right_to_left);
-            }
-        });
-        Button bMasters = (Button) findViewById(R.id.bMasters);
-        bMasters.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent managerIntent = new Intent(ManagerAreaActivity.this, MastersActivity.class);
-                ManagerAreaActivity.this.startActivity(managerIntent);
-                overridePendingTransition(R.anim.left_to_right,
-                        R.anim.right_to_left);
-            }
-        });
-
-        Button bChangeStock = (Button) findViewById(R.id.bSettings);
         bChangeStock.setVisibility(View.GONE);
 
+        Animation shake = AnimationUtils.loadAnimation(ManagerAreaActivity.this, R.anim.shake);
+        movingText.startAnimation(shake);
+
+    }
+
+    private void initialize() {
+        movingText = (TextView) findViewById(R.id.txtMarquee);
+        layoutBottom = (LinearLayout) findViewById(R.id.bottom_bar);
+        bBilling = (Button) findViewById(R.id.bBilling);
+        bReports = (Button) findViewById(R.id.bReports);
+        bMasters = (Button) findViewById(R.id.bMasters);
+        bChangeStock = (Button) findViewById(R.id.bSettings);
+    }
+
+    private void listener() {
+        bBilling.setOnClickListener(this);
+        bReports.setOnClickListener(this);
+        bMasters.setOnClickListener(this);
+        bChangeStock.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.bBilling) {
+            Intent adminIntent = new Intent(ManagerAreaActivity.this, BillingActivity.class);
+            startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
+        }
+
+        if (v.getId() == R.id.bReports) {
+            Intent adminIntent = new Intent(ManagerAreaActivity.this, ReportsActivity.class);
+            startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
+        }
+
+        if (v.getId() == R.id.bMasters) {
+            Intent adminIntent = new Intent(ManagerAreaActivity.this, MastersActivity.class);
+            startActivity(adminIntent);
+            overridePendingTransition(R.anim.left_to_right,
+                    R.anim.right_to_left);
+        }
+
+        if (v.getId() == R.id.bSettings) {
+
+        }
     }
 
     @Override

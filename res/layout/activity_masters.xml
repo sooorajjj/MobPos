@@ -3,64 +3,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="online.klok.mobpos.MastersActivity">
+    tools:context=".MastersActivity">
+
+    <include
+        android:id="@+id/bottom_bar"
+        layout="@layout/bottom_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/bCustomers"
+            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customers" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Customers"
-        android:id="@+id/bCustomers"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Items"
         android:id="@+id/bItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/bCustomers"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:text="Items" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Branches"
         android:id="@+id/bBranches"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/bItems"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:text="Branches" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Company"
         android:id="@+id/bCompany"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/bBranches"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:text="Company" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Account Type"
         android:id="@+id/bAccountType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/bCompany"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:text="Account Type" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alter Entry"
         android:id="@+id/bAlterEntry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/bAccountType"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:text="Alter Entry" />
+
+    </LinearLayout>
 
 </RelativeLayout>

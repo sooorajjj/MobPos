@@ -5,15 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class AdminAreaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -43,7 +40,7 @@ public class AdminAreaActivity extends AppCompatActivity implements View.OnClick
 
     private void initialize() {
         movingText = (TextView) findViewById(R.id.txtMarquee);
-        layoutBottom = (LinearLayout) findViewById(R.id.toolbar_bottom);
+        layoutBottom = (LinearLayout) findViewById(R.id.bottom_bar);
         bBilling = (Button) findViewById(R.id.bBilling);
         bReports = (Button) findViewById(R.id.bReports);
         bMasters = (Button) findViewById(R.id.bMasters);
