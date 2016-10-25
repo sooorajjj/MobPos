@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReportsActivity">
+
+    <include
+        android:id="@+id/bottom_bar"
+        layout="@layout/bottom_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/bStockReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stock Report" />
+
+        <Button
+            android:id="@+id/bPayCollectReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bStockReport"
+            android:text="Pay Collect Report" />
+
+        <Button
+            android:id="@+id/bDailyReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bPayCollectReport"
+            android:text="Daily Report" />
+
+        <Button
+            android:id="@+id/bDateRangeReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bDailyReport"
+            android:text="Date Range Report" />
+
+        <Button
+            android:id="@+id/bStockAnalysis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bDateRangeReport"
+            android:text="Stock Analysis" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bStockAnalysis"
+            android:text="Stock Register" />
+
+        <Button
+            android:id="@+id/bCustomerReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button6"
+            android:text="Customer Report" />
+
+        <Button
+            android:id="@+id/bItemReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bCustomerReport"
+            android:text="Item Report" />
+
+    </LinearLayout>
+
+</RelativeLayout>
