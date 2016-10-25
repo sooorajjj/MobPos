@@ -10,8 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,14 +20,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AdminAreaActivity"/>
+        <activity android:name=".AdminAreaActivity" />
         <activity android:name=".ManagerAreaActivity" />
         <activity android:name=".UserAreaActivity" />
         <activity android:name=".BillingActivity" />
         <activity android:name=".ReportsActivity" />
         <activity android:name=".MastersActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".PayCollectActivity"></activity>
+        <activity android:name=".PayCollectActivity" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

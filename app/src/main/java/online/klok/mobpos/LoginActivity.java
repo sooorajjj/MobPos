@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     boolean isEmptyEmail;
@@ -148,10 +149,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     if (password.equals("admin"))
                     {
-//                        Intent intent = new Intent(LoginActivity.this, SettingsActivity.class);
-//                        startActivity(intent);
-//                        finish();
-                        Toast.makeText(LoginActivity.this, "right password" , Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, online.klok.mobpos.settings.SettingsActivity.class);
+                        startActivity(intent);
+                        finish();
+
 
                     }
                     else
