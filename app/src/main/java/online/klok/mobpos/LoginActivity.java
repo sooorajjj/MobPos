@@ -1,17 +1,21 @@
 package online.klok.mobpos;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -23,6 +27,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText mInputText, mPasswordText;
     private Button login;
     private Button registerLink;
+    private TextView settings;
+    AlertDialog.Builder alert;
+    EditText etAlert;
     private View.OnClickListener mSnackBarClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -52,6 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mInputText = (EditText) findViewById(R.id.edtInput);
         mPasswordText = (EditText) findViewById(R.id.edtPassword);
         login = (Button) findViewById(R.id.btnLogin);
+        settings = (TextView) findViewById(R.id.tvSettings);
     }
 
     private boolean isEmptyEmail() {
@@ -69,6 +77,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void listener() {
         registerLink.setOnClickListener(this);
         login.setOnClickListener(this);
+        settings.setOnClickListener(this);
     }
 
     @Override
@@ -120,6 +129,47 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             overridePendingTransition(R.anim.fade_in,
                     R.anim.fade_out);
+        }
+        if (v.getId() == R.id.tvSettings){
+            alert = new AlertDialog.Builder(this);
+            etAlert = new EditText(this);
+            etAlert.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            alert.setMessage("Admin Password");
+            alert.setTitle("Password");
+
+            alert.setView(etAlert);
+
+
+            alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    //What ever you want to do with the value
+
+                    String password = etAlert.getText().toString();
+
+                    if (password.equals("admin"))
+                    {
+//                        Intent intent = new Intent(LoginActivity.this, SettingsActivity.class);
+//                        startActivity(intent);
+//                        finish();
+                        Toast.makeText(LoginActivity.this, "right password" , Toast.LENGTH_SHORT).show();
+
+                    }
+                    else
+                    {
+                        Toast.makeText(LoginActivity.this, "Wrong Password" , Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+
+            alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    // what ever you want to do with No option.
+                }
+            });
+
+            alert.show();
+
         }
     }
 
