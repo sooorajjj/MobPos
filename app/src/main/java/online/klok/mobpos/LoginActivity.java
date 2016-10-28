@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import online.klok.mobpos.database.helper.DatabaseHelper;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
